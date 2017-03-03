@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Marketplace</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <% RailsMarketplace::Category.root_categories.each do |cat| %>
+        <li style="position:relative;"><%= link_to cat.name, category_products_path(cat) %>
+        <div style="display: none; position:absolute;">
+          <ul>
+          <% RailsMarketplace::Category.find(cat.id).children.each do |child| %>
+            <li><%= link_to child.name, category_products_path(child) %></li>
+          <% end %>
+          </ul>
+        </div>
+        </li>
+      <% end %>
+      
+      <li><%= link_to "Seller Central", seller_login_path %></li>
+      <li><%= link_to "Cart (#{session[:cart_id].nil? ? 0 : RailsMarketplace::Cart.find(session[:cart_id]).cart_quantity})", cart_path %></li>
+    </ul>
+  </div>
+</nav>
+
+<script type="text/javascript">
+/* define a namespace MPL */
+MPL = function(){
+  this.creator = "Josh Yan";
+  this.creator_time = "2016-12-07";
+}
+
+MPL.prototype.hovermenu = function() {
+  $('.navbar-nav li').hover(function(){
+    $(this).find("div").show();
+  }, function(){
+    $(this).find("div").hide();
+  })
+}
+
+mpl = new MPL();
+mpl.hovermenu();
+</script>

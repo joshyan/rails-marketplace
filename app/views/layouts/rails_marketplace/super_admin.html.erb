@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Rails Marketplace" %> </title>
+
+<% if @current_admin %>
+  <%= stylesheet_link_tag    'rails_marketplace/application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'rails_marketplace/application', 'data-turbolinks-track' => true %>
+<% else %>
+  <%= stylesheet_link_tag    'rails_marketplace/marketplace', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'rails_marketplace/marketplace', 'data-turbolinks-track' => true %>
+<% end %>
+
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<% if @current_admin %>
+<body class="nav-md">
+  <div class="container body">
+  <% flash.each do |key, value| %>
+      <div align="center" id="flash" class="alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+
+  <%= render "rails_marketplace/partials/admin_sidenav" %>
+  <%= render "rails_marketplace/partials/admin_topnav" %>
+
+  <%= yield %>
+
+  <%= render "rails_marketplace/partials/footer" %>
+  <%= javascript_include_tag 'rails_marketplace/footermanifest', 'data-turbolinks-track' => true %>
+
+</body>
+<% else %>
+<body>
+
+<div class="container body">
+
+<%= render "rails_marketplace/partials/menu" %>
+
+
+  <% flash.each do |key, value| %>
+      <div align="center" id="flash" class="alert alert-<%= key %>">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <ul style="text-align: center">
+          <l>
+          <b> <%= value %>  </b>
+          </l>
+        </ul>
+      </div>
+  <% end %>
+  
+  <%= yield %>
+
+</body>
+<% end %>
+</html>

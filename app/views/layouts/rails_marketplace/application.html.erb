@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RailsMarketplace</title>
+  <%= stylesheet_link_tag    "rails_marketplace/marketplace", media: "all" %>
+  <%= javascript_include_tag "rails_marketplace/marketplace" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container body">
+
+<%= render "rails_marketplace/partials/menu" %>
+
+
+  <% flash.each do |key, value| %>
+      <div align="center" id="flash" class="alert alert-<%= key %>">
+        <a href="#" data-dismiss="alert" class="close">×</a>
+        <ul style="text-align: center">
+          <l>
+          <b> <%= value %>  </b>
+          </l>
+        </ul>
+      </div>
+  <% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

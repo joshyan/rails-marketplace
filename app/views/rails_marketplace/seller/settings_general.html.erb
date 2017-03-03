@@ -1,0 +1,64 @@
+<!-- page content -->
+<div class="right_col" role="main">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3>Settings / General</h3>
+      </div>
+
+    </div>
+    <div class="clearfix"></div>
+
+    <div class="row">
+
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel" style="height:600px;">
+          <div class="x_title">
+
+          <%= form_for(:seller, url: seller_settings_general_update_path) do |f| %>
+            <p id="notice"><%= flash[:error] %></p>
+
+              <h3>Store Details</h3>
+              <%= f.label :store_name %>
+              <%= f.text_field :store_name, class: 'form-control' %>
+
+              <%= f.label :store_customer_email %> (Your customers will see this address if you email them)
+              <%= f.text_field :store_customer_email, class: 'form-control' %>
+
+              <h3>Store address</h3>
+              <%= f.label 'Legal name of business' %>
+              <%= f.text_field :shipping_origin_company_name, class: 'form-control' %>
+
+              <%= f.label 'Phone' %> 
+              <%= f.text_field :shipping_origin_phone, class: 'form-control' %>
+
+              <%= f.label 'Street' %> 
+              <%= f.text_field :shipping_origin_address1, class: 'form-control' %>
+
+              <%= f.label 'Apt, suite, etc. (optional)'  %> 
+              <%= f.text_field :shipping_origin_address2, class: 'form-control' %>
+
+              <%= f.label 'City'  %> 
+              <%= f.text_field :shipping_origin_city, class: 'form-control' %>
+
+              <%= f.label 'Postal / ZIP code'  %> 
+              <%= f.text_field :shipping_origin_zip, class: 'form-control' %>
+
+              <%= f.label 'Country'  %> 
+              <%= f.text_field :shipping_origin_country, class: 'form-control' %>
+
+              <%= f.label 'State'  %> 
+              <%= f.text_field :shipping_origin_state, class: 'form-control' %>
+
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          <% end %>
+
+            <div class="clearfix"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /page content -->
+

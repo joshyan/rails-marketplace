@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="content-wrapper"> 
+    <div class="item-container">  
+      <div class="container">
+        <div class="col-md-5">
+        <ul>
+        <% @order_ids.each do |order_id| %>
+        <li>Order #<%=order_id%> is successfully placed.</li>
+        <% end %>
+        </ul>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
