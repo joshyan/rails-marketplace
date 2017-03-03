@@ -1,6 +1,6 @@
 # Rails Marketplace
 
-Rails Marketplace is a project to build an ecommerce marketplace engine
+Rails Marketplace is a project to build an ecommerce marketplace engine.
 
 ## Installation Guideline
 
