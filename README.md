@@ -7,6 +7,7 @@ Add to current project or create new project: rails new --project
 Step 1: Add related gem files and install
 
 a. add to Gemfile
+
 gem 'rails_marketplace', path: '../rails_marketplace'
 gem 'acts_as_tree'
 gem 'friendly_id', '~> 5.1.0'
