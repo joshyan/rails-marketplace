@@ -50,25 +50,31 @@ module RailsMarketplace
 		end
 
 		def charge
+			Stripe.api_key = AdminSetting.stripe_secret_key
 		  	# Amount in cents
 		  	@subtotal = @cart.cart_subtotal.cents
+		  	#@shipping_total = 
+		  	#@tax_total = 
+
+		  	charge_total = @subtotal
 
 			# Get the credit card details submitted by the form
 			token = params[:stripeToken]
-
+			group_order_id = get_new_group_order_id
 			# Create a charge: this will charge the user's card
-			# begin
-			#   charge = Stripe::Charge.create(
-			#     :amount => @amount, # Amount in cents
-			#     :currency => "usd",
-			#     :source => token,
-			#     :description => "Example charge"
-			#   )
-			# rescue Stripe::CardError => e
-			#   # The card has been declined
-			#   flash[:error] = e.message
-		 #  	  redirect_to checkout_path
-			# end
+			begin
+			  charge = Stripe::Charge.create(
+			    :amount => charge_total, # Amount in cents
+			    :currency => "usd",
+			    :source => token,
+			    :transfer_group => group_order_id
+			  )
+			rescue Stripe::CardError => e
+			  # The card has been declined
+			  flash[:error] = e.message
+		  	  redirect_to checkout_path
+			end
+
 			order_params = {
 				email: params[:email], 
 				fullname: params[:fullname],
@@ -84,13 +90,35 @@ module RailsMarketplace
 			}
 			# group products by seller
 			product_groups = @cart.get_product_groups
+			i = 0
 			product_groups.each do |seller_id, cart_products|
+				i += 1
+				order_params[:id] = "#{group_order_id}-#{i}"
 				order_params[:seller_id] = seller_id
 				order_params[:shipping_method] = params[:shipping_method][seller_id.to_s]
+				
+				# transfer to seller account 
+				seller_subtotal = get_seller_subtotal(cart_products).cents
+				# seller_shipping_fee = get_seller_shipping seller_id, params[:shipping_method][seller_id.to_s]
+				seller_total = seller_subtotal
+				
+				# assumming 5% marketplace fee, 2% stripe fee
+				seller_transfer_total = (seller_total * 0.93).to_i
+
+				# Create a Transfer to a connected account (later):
+				transfer = Stripe::Transfer.create({
+				  :amount => seller_transfer_total,
+				  :currency => "usd",
+				  :destination => "#{SellerSetting.find_by_seller_id(seller_id).stripe_account_id}",
+				  :transfer_group => "#{group_order_id}",
+				})
+
+				# save seller's order
 				order = Order.new(order_params)
 				order.save
 				order.save_products cart_products
 				(session[:order_ids] ||= []) << order.id
+
 			end
 			# todo: send email
 			redirect_to checkout_success_path
@@ -126,6 +154,19 @@ module RailsMarketplace
 			
 			def reset_success_orders
 				session.delete(:order_ids)
+			end
+
+			# todo: generate unique order id
+			def get_new_group_order_id
+				"20170319"
+			end
+
+			def get_seller_subtotal(cart_products)
+				subtotal = 0
+				cart_products.each do |cart_product|
+					subtotal += cart_product.quantity * cart_product.price
+				end
+				subtotal
 			end
 	end
 end

@@ -9,9 +9,10 @@ Gem::Specification.new do |s|
   # s.add_dependency 'bootstrap-wysihtml5-rails'
   # s.add_dependency 'mini_magick'
   # s.add_dependency 'acts_as_tree', '2.6.1'
-  # s.add_dependency 'friendly_id', '~> 5.1.0'
-  # s.add_dependency 'money-rails'
+  s.add_dependency 'friendly_id', '~> 5.1.0'
+  s.add_dependency 'money-rails'
   # s.add_dependency 'stripe'
+  s.add_dependency "rspec-rails", "~> 2.14.1"
   s.add_dependency 'bcrypt-ruby', '3.1.2'
   s.name        = "rails_marketplace"
   s.version     = RailsMarketplace::VERSION
@@ -23,7 +24,7 @@ Gem::Specification.new do |s|
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
-  s.test_files = Dir["test/**/*"]
+  s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.2.1"
 

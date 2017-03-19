@@ -49,7 +49,7 @@ RailsMarketplace::Engine.routes.draw do
   post 'cart/add' => 'catalog#add_to_cart', as: :add_to_cart
   post 'purchase' => 'catalog#purchase', as: :purchase
   get 'cart' => 'catalog#cart', as: :cart
-  post 'cart/update' => 'catalog#cart_update', as: :cart_update
+  put 'cart/update' => 'catalog#cart_update', as: :cart_update
   get 'cart/delete/:product_id' => 'catalog#cart_delete', as: :cart_delete
   get 'checkout' => 'catalog#checkout', as: :checkout
   post 'charge' => 'catalog#charge', as: :charge

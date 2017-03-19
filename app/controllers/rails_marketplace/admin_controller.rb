@@ -26,6 +26,10 @@ module RailsMarketplace
 		    end
 		end
 
+		def dashboard
+			
+		end
+
 		def signup_form
 			@admin = Admin.new
 		end
@@ -103,7 +107,7 @@ module RailsMarketplace
 
 		def settings_form
 			if @current_admin.admin_setting.nil?
-				AdminSetting.create @current_admin
+				AdminSetting.create admin: @current_admin
 			end
 		end
 

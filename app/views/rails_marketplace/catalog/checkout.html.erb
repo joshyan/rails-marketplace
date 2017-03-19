@@ -137,7 +137,7 @@
       <div class="container">
       <% @product_groups.each do |seller_id, products| %>
         <div class="col-md-5">
-        <p>Seller: <%=RailsMarketplace::Seller.find(seller_id).seller_name%></p>
+        <p>Seller: <%=RailsMarketplace::Seller.find(seller_id).first_name%></p>
         <% products.each do |cart_product| %>
           <%= image_tag(cart_product.product.images[0].small.url) %>
         <% end %>
@@ -158,7 +158,7 @@
       <input type="submit" class="submit" value="Place Order">
 </form>
 
-        <!--script type="text/javascript">
+        <script type="text/javascript">
         $(function() {
           var $form = $('#payment-form');
           $form.submit(function(event) {
@@ -195,7 +195,7 @@
             $form.get(0).submit();
           }
         };
-        </script-->
+        </script>
         </div>
     </div>
 </div>

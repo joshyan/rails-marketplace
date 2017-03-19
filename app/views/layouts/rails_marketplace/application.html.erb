@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    "rails_marketplace/marketplace", media: "all" %>
   <%= javascript_include_tag "rails_marketplace/marketplace" %>
   <%= csrf_meta_tags %>
+  <% if current_page?(:controller => 'catalog', :action => 'checkout') %>
+  <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+  <script type="text/javascript">
+    Stripe.setPublishableKey('<%=RailsMarketplace::AdminSetting.stripe_publishable_key%>');
+  </script>
+  <% end %>
 </head>
 <body>
 
