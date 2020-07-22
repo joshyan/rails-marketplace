@@ -17,16 +17,16 @@ Gem::Specification.new do |s|
   s.name        = "rails_marketplace"
   s.version     = RailsMarketplace::VERSION
   s.authors     = ["Josh Yan"]
-  s.email       = ["joshyansmile@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsMarketplace."
-  s.description = "TODO: Description of RailsMarketplace."
+  s.email       = ["joshyanworks@gmail.com"]
+  s.homepage    = ""
+  s.summary     = "Rails Marketplace."
+  s.description = "Rails Marketplace."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["spec/**/*"]
 
-  s.add_dependency "rails", "~> 4.2.1"
+  s.add_dependency "rails", "~> 6.0.2"
 
   s.add_development_dependency "sqlite3"
 end
