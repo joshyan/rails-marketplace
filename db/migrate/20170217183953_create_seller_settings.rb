@@ -1,4 +1,4 @@
-class CreateSellerSettings < ActiveRecord::Migration
+class CreateSellerSettings < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_seller_settings do |t|
         t.string :store_name

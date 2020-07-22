@@ -33,7 +33,7 @@
 				<li style="float: left; padding-right: 120px;"><%= image_tag(product.images[0].small.url) %>
 					<p><%= product.title %></p>
 					<p>$<%= product.price %></p>
-					<p>Seller: <%= product.seller.seller_name %></p>
+					<p>Seller: <%= product.seller.seller_setting.store_name %></p>
 				</li>
 
 			<% end %>

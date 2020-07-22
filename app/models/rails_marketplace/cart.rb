@@ -2,7 +2,7 @@ module RailsMarketplace
 	class Cart < ActiveRecord::Base
 		has_many :cart_products, :dependent => :destroy
 		has_many :products, :through => :cart_products
-		belongs_to :customer
+		# belongs_to :customer
 
 		def add_product(product_id, quantity)
 		  cart_product = cart_products.where('product_id = ?', product_id).first

@@ -1,4 +1,4 @@
-class DeleteStripeAccounts < ActiveRecord::Migration
+class DeleteStripeAccounts < ActiveRecord::Migration[6.0]
   def change
   	drop_table :rails_marketplace_stripe_managed_accounts
 

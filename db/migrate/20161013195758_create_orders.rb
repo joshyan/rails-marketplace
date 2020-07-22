@@ -1,4 +1,4 @@
-class CreateOrders < ActiveRecord::Migration
+class CreateOrders < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_orders do |t|
 

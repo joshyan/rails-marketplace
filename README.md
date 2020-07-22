@@ -19,6 +19,7 @@ gem 'money-rails'
 gem 'mini_magick'
 gem 'carrierwave', '~> 1.0'
 gem 'stripe'
+gem 'jquery-rails'
 
 b. bundle install
 ```
@@ -57,6 +58,9 @@ a. add to `config/initializers/assets.rb` to precompile related css js
 Rails.application.config.assets.precompile += %w( rails_marketplace/marketplace.css )
 Rails.application.config.assets.precompile += %w( rails_marketplace/marketplace.js )
 Rails.application.config.assets.precompile += %w( rails_marketplace/footermanifest.js )
+b. add to `app/assets/config/manifest.js`
+//= link rails_marketplace/application.css
+//= link rails_marketplace/application.js 
 ```
 
 

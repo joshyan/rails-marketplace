@@ -1,4 +1,4 @@
-class CreateCategories < ActiveRecord::Migration
+class CreateCategories < ActiveRecord::Migration[6.0]
   def self.up
     create_table :rails_marketplace_categories do |t|
       t.string :name

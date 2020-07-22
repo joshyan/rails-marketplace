@@ -1,4 +1,4 @@
-class CreateProducts < ActiveRecord::Migration
+class CreateProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_products do |t|
     	t.string :title, :index => true

@@ -35,7 +35,7 @@ Your shopping cart is empty.
                             <a class="thumbnail pull-left" href="#"> <%= image_tag(product.images[0].thumb.url) %> </a>
                             <div class="media-body">
                                 <h4 class="media-heading"><%= link_to product.title, product_detail_url(product) %></h4>
-                                <h5 class="media-heading"> by <a href="#"><%= product.seller.first_name %></a></h5>
+                                <h5 class="media-heading"> by <a href="#"><%= product.seller.seller_setting.store_name %></a></h5>
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">

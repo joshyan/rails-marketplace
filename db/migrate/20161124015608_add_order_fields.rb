@@ -1,4 +1,4 @@
-class AddOrderFields < ActiveRecord::Migration
+class AddOrderFields < ActiveRecord::Migration[6.0]
   def change
   	add_column :rails_marketplace_orders, :email, :string
   	add_column :rails_marketplace_orders, :fullname, :string

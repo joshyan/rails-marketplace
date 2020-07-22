@@ -1,4 +1,4 @@
-class CreateFriendlyIdSlugs < ActiveRecord::Migration
+class CreateFriendlyIdSlugs < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_friendly_id_slugs do |t|
       t.string   :slug,           :null => false

@@ -1,4 +1,4 @@
-class CreateCustomers < ActiveRecord::Migration
+class CreateCustomers < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_customers do |t|
     	t.string :email

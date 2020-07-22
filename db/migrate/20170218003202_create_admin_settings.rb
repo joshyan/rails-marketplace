@@ -1,4 +1,4 @@
-class CreateAdminSettings < ActiveRecord::Migration
+class CreateAdminSettings < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_admin_settings do |t|
     	t.string :timezone

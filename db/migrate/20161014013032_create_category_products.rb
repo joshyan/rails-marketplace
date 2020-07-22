@@ -1,4 +1,4 @@
-class CreateCategoryProducts < ActiveRecord::Migration
+class CreateCategoryProducts < ActiveRecord::Migration[6.0]
   def change
     create_table :rails_marketplace_category_products do |t|
       t.belongs_to :product, :index => true

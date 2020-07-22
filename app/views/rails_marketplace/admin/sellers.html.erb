@@ -29,7 +29,7 @@
 
 			<ul>
 			<% @sellers.each do |seller| %>
-				<li><%= link_to seller.seller_name, admin_seller_products_path(id: seller.id) %></li>
+				<li><%= link_to seller.seller_setting.store_name, admin_seller_products_path(id: seller.id) %></li>
 			<% end %>
 			</ul>
 
