@@ -9,7 +9,7 @@ Rails Marketplace is a project to build an ecommerce marketplace engine.
 ### Step 1: Add related gem files and install
 ```
 a. add to Gemfile
-gem 'rails_marketplace', path: '../rails_marketplace'
+gem 'rails_marketplace'
 gem 'acts_as_tree'
 gem 'friendly_id', '~> 5.1.0'
 gem 'bootstrap-sass', '~> 3.3.6'

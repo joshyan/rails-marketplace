@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.version     = RailsMarketplace::VERSION
   s.authors     = ["Josh Yan"]
   s.email       = ["joshyanworks@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/joshyan/rails-marketplace"
   s.summary     = "Rails Marketplace."
   s.description = "Rails Marketplace."
   s.license     = "MIT"
