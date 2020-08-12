@@ -10,16 +10,6 @@ Rails Marketplace is a project to build an ecommerce marketplace engine.
 ```
 a. add to Gemfile
 gem 'rails_marketplace'
-gem 'acts_as_tree'
-gem 'friendly_id', '~> 5.1.0'
-gem 'bootstrap-sass', '~> 3.3.6'
-gem 'bootstrap-wysihtml5-rails'
-gem 'font-awesome-rails'
-gem 'money-rails'
-gem 'mini_magick'
-gem 'carrierwave', '~> 1.0'
-gem 'stripe'
-gem 'jquery-rails'
 
 b. bundle install
 ```
@@ -54,11 +44,7 @@ b. add to app/uploaders/product_images_uploader.rb
 
 ### Step 4: Precompile related css and js
 ```
-a. add to `config/initializers/assets.rb` to precompile related css js
-Rails.application.config.assets.precompile += %w( rails_marketplace/marketplace.css )
-Rails.application.config.assets.precompile += %w( rails_marketplace/marketplace.js )
-Rails.application.config.assets.precompile += %w( rails_marketplace/footermanifest.js )
-b. add to `app/assets/config/manifest.js`
+a. add to `app/assets/config/manifest.js`
 //= link rails_marketplace/application.css
 //= link rails_marketplace/application.js 
 ```
@@ -67,7 +53,7 @@ b. add to `app/assets/config/manifest.js`
 ### Step 5: Mount to route and start server
 ```
 a. add to config/routes.rb
-mount RailsMarketplace::Engine, at: "/market"
+mount RailsMarketplace::Engine, at: "/"
 b. rails s
-c. go to localhost:3000/market
+c. go to localhost:3000
 ```
